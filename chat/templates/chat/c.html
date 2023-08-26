@@ -1,0 +1,19 @@
+<a href="{% url 'chat' room friend.user.id %}">
+    <div class="friend mx-3 flex items-center gap-3 px-3 py-3 border-b border-[#25324B]">
+        <img src="{% static 'images/profile.jpg' %}" class="w-10 h-10 rounded-[50%]" alt="">
+        <div class="w-[100%]">
+            <div class="username font-[600] text-gray-200">
+                {{friend.user}}
+            </div>
+            <div class="flex justify-between items-center w-[100%]">
+                <div class="last-text text-gray-400 text-sm">
+                    Hello How are you
+                </div>
+                <div
+                    class="unseen-count px-2 rounded-[20px]  bg-indigo-400 font-bold text-sm text-gray-900">
+                    10
+                </div>
+            </div>
+        </div>
+    </div>
+</a>

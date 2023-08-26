@@ -1,0 +1,279 @@
+{% load static %}
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .side-chats-content {
+            background: rgba(7, 16, 27, .8);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background:  #122C4C;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background:  #25324b;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0f2541;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper bg-[#25324b] w-full h-[100vh]">
+        <div class="flex h-full">
+            <div class="side-chats min-w-[300px] h-full bg-[#122C4C]">
+                <div class="side-chats-content w-full h-full px-1 py-2">
+                    <di class="flex flex-col h-full">
+                        <div>
+                            <div class="profile flex items-center gap-5 border-b-2 border-[#25324B] pb-2 px-2">
+                                <img class="w-14 h-14 rounded-[50%] shadow-lg shadow-[#25324B]"
+                                    src="{% static 'images/profile-pic.jpg' %}" alt="">
+                                <div class="username text-indigo-400 text-lg font-[600]">Maxthrills</div>
+                            </div>
+                            <div class="user-search pt-1 pb-4 b rounded px-5">
+                                <form action="">
+                                    <input type="text"
+                                        class="h-[42px] w-[200px] mt-3 px-4 rounded-[12px] bg-gray-50 outline-none hover:border-[#25324B] text-gray-800"
+                                        placeholder="Search username">
+                                </form>
+                            </div>
+                        </div>
+                        <div class="friends relative mb-3 border-b-2  border-[#25324B] h-full overflow-auto">
+                            <div class="spacer mx-2 h-1 bg-[#091524] border-b border-[#25324B]"></div>
+
+                            <a href="#">
+                                <div class="friend mx-2 flex items-center gap-3 px-5 py-3 border-b border-[#25324B]">
+                                    <img src="{% static 'images/profile.jpg' %}" class="w-10 h-10 rounded-[50%]" alt="">
+                                    <div class="w-[100%]">
+                                        <div class="username font-[600] text-gray-200">
+                                            Josh
+                                        </div>
+                                        <div class="flex justify-between items-center w-[100%]">
+                                            <div class="last-text text-gray-400 text-sm">
+                                                Hello How are you
+                                            </div>
+                                            <div
+                                                class="unseen-count px-2 rounded-[20px]  bg-indigo-400 font-bold text-sm text-gray-900">
+                                                10
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#">
+                                <div class="friend mx-2 flex items-center gap-3 px-5 py-3 border-b border-[#25324B]">
+                                    <img src="{% static 'images/profile.jpg' %}" class="w-10 h-10 rounded-[50%]" alt="">
+                                    <div class="w-[100%]">
+                                        <div class="username font-[600] text-gray-200">
+                                            Princess
+                                        </div>
+                                        <div class="flex justify-between items-center w-[100%]">
+                                            <div class="last-text text-gray-400 text-sm ">
+                                                Hello How are you
+                                            </div>
+                                            <div
+                                                class="unseen-count px-2 rounded-[20px]  bg-indigo-400 font-bold text-sm text-gray-900">
+                                                10
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#">
+                                <div class="friend mx-2 flex items-center gap-3 px-5 py-3 border-b border-[#25324B]">
+                                    <img src="{% static 'images/profile.jpg' %}" class="w-10 h-10 rounded-[50%]" alt="">
+                                    <div class="w-[100%]">
+                                        <div class="username font-[600] text-gray-200">
+                                            Logan
+                                        </div>
+                                        <div class="flex justify-between items-center w-[100%]">
+                                            <div class="last-text text-gray-400 text-sm">
+                                                Hello How are you
+                                            </div>
+                                            <div
+                                                class="unseen-count px-2 rounded-[20px]  bg-indigo-400 font-bold text-sm text-gray-900">
+                                                10
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#">
+                                <div class="friend mx-2 flex items-center gap-3 px-5 py-3 border-b border-[#25324B]">
+                                    <img src="{% static 'images/profile.jpg' %}" class="w-10 h-10 rounded-[50%]" alt="">
+                                    <div class="w-[100%]">
+                                        <div class="username font-[600] text-gray-200">
+                                            Josh
+                                        </div>
+                                        <div class="flex justify-between items-center w-[100%]">
+                                            <div class="last-text text-gray-400 text-sm">
+                                                Hello How are you
+                                            </div>
+                                            <div
+                                                class="unseen-count px-2 rounded-[20px]  bg-indigo-400 font-bold text-sm text-gray-900">
+                                                10
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#">
+                                <div class="friend mx-2 flex items-center gap-3 px-5 py-3 border-b border-[#25324B]">
+                                    <img src="{% static 'images/profile.jpg' %}" class="w-10 h-10 rounded-[50%]" alt="">
+                                    <div class="w-[100%]">
+                                        <div class="username font-[600] text-gray-200">
+                                            Princess
+                                        </div>
+                                        <div class="flex justify-between items-center w-[100%]">
+                                            <div class="last-text text-gray-400 text-sm ">
+                                                Hello How are you
+                                            </div>
+                                            <div
+                                                class="unseen-count px-2 rounded-[20px]  bg-indigo-400 font-bold text-sm text-gray-900">
+                                                10
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#">
+                                <div class="friend mx-2 flex items-center gap-3 px-5 py-3 border-b border-[#25324B]">
+                                    <img src="{% static 'images/profile.jpg' %}" class="w-10 h-10 rounded-[50%]" alt="">
+                                    <div class="w-[100%]">
+                                        <div class="username font-[600] text-gray-200">
+                                            Saphire
+                                        </div>
+                                        <div class="flex justify-between items-center w-[100%]">
+                                            <div class="last-text text-gray-400 text-sm ">
+                                                Hello How are you
+                                            </div>
+                                            <div
+                                                class="unseen-count px-2 rounded-[20px]  bg-indigo-400 font-bold text-sm text-gray-900">
+                                                10
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="friend mx-2 flex items-center gap-3 px-5 py-3 border-b border-[#25324B]">
+                                    <img src="{% static 'images/profile.jpg' %}" class="w-10 h-10 rounded-[50%]" alt="">
+                                    <div class="w-[100%]">
+                                        <div class="username font-[600] text-gray-200">
+                                            Logan
+                                        </div>
+                                        <div class="flex justify-between items-center w-[100%]">
+                                            <div class="last-text text-gray-400 text-sm">
+                                                Hello How are you
+                                            </div>
+                                            <div
+                                                class="unseen-count px-2 rounded-[20px]  bg-indigo-400 font-bold text-sm text-gray-900">
+                                                10
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#">
+                                <div class="friend mx-2 flex items-center gap-3 px-5 py-3 border-b border-[#25324B]">
+                                    <img src="{% static 'images/profile.jpg' %}" class="w-10 h-10 rounded-[50%]" alt="">
+                                    <div class="w-[100%]">
+                                        <div class="username font-[600] text-gray-200">
+                                            Halle
+                                        </div>
+                                        <div class="flex justify-between items-center w-[100%]">
+                                            <div class="last-text text-gray-400 text-sm">
+                                                Hello How are you
+                                            </div>
+                                            <div
+                                                class="unseen-count px-2 rounded-[20px]  bg-indigo-400 font-bold text-sm text-gray-900">
+                                                10
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#">
+                                <div class="friend mx-2 flex items-center gap-3 px-5 py-3 border-b border-[#25324B]">
+                                    <img src="{% static 'images/profile.jpg' %}" class="w-10 h-10 rounded-[50%]" alt="">
+                                    <div class="w-[100%]">
+                                        <div class="username font-[600] text-gray-200">
+                                            Stone
+                                        </div>
+                                        <div class="flex justify-between items-center w-[100%]">
+                                            <div class="last-text text-gray-400 text-sm ">
+                                                Hello How are you
+                                            </div>
+                                            <div
+                                                class="unseen-count px-2 rounded-[20px]  bg-indigo-400 font-bold text-sm text-gray-900">
+                                                10
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#">
+                                <div class="friend mx-2 flex items-center gap-3 px-5 py-3 border-b border-[#25324B]">
+                                    <img src="{% static 'images/profile.jpg' %}" class="w-10 h-10 rounded-[50%]" alt="">
+                                    <div class="w-[100%]">
+                                        <div class="username font-[600] text-gray-200">
+                                            Boss
+                                        </div>
+                                        <div class="flex justify-between items-center w-[100%]">
+                                            <div class="last-text text-gray-400 text-sm">
+                                                Hello How are you
+                                            </div>
+                                            <div
+                                                class="unseen-count px-2 rounded-[20px]  bg-indigo-400 font-bold text-sm text-gray-900">
+                                                10
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="spacer sticky bottom-0 w-full h-1 bg-[#091524]"></div>
+                        </div>
+                    </di>
+                </div>
+            </div>
+            {% block outline %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+{% load static %}
+{% load my_filters %}
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .side-chats-content {
+            background: rgba(7, 16, 27, .8);
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #122C4C;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #25324b;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0f2541;
+        }
+
+        #auth-user {
+            text-transform: capitalize;
+        }
+
+        .result {
+            background: rgba(7, 16, 27, .45);
+        }
+
+        /* .chats-btn {
+            background: rgba(7, 16, 27, .1);
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="wrapper bg-[#25324b] w-full h-[100vh]">
+        <div class="flex h-full">
+            <div class="side-chats min-w-[300px] h-full bg-[#122C4C]">
+                <div class="side-chats-content w-full h-full px-1 py-2">
+                    <di class="flex flex-col h-full">
+                        <div>
+                            <div class="profile flex items-center gap-5 border-b-2 border-[#25324B] pb-2 px-2">
+                                <img class="w-14 h-14 rounded-[50%] shadow-lg shadow-[#25324B]"
+                                    src="{% static 'images/profile-pic.jpg' %}" alt="">
+                                <div id="auth-user" class="username text-indigo-400 text-lg font-[600]">{{request.user.username}}</div>
+                            </div>
+                            <div class="user-search flex items-center gap-4 pt-1 pb-4 b rounded px-5">
+                                <form action="">
+                                    <input type="text"
+                                        class="h-9 w-[200px] mt-3 px-4 rounded-[12px] bg-gray-50 outline-none hover:border-[#25324B] text-gray-800"
+                                        placeholder="Search username">
+                                </form>
+                                <a href="{% url 'friends' %}">
+                                <div class="rounded-[12px] chats-btn w-[1.9rem] h-[1.9rem] mr-5 mt-3">
+                                    <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor"
+                                        class="w-[1.9rem] h-[1.9rem] text-gray-50 shadow">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+                                    </svg> -->
+
+
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor"
+                                        class="w-[1.8rem] h-[1.8rem] text-gray-50 shadow">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                                    </svg>
+
+
+
+                                </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="friends" class="friends relative mb-3 border-b-2  border-[#25324B] h-full overflow-auto">
+                            <div class="spacer mx-3 h-1 bg-[#091524] border-b border-[#25324B]"></div>
+                            <div id="friends-wrapper">
+                                <div id="friends-child">
+                                    
+                                </div>
+                            </div>
+
+                            <div class="spacer sticky bottom-0 w-full h-1 bg-[#091524]"></div>
+                        </div>
+                    </di>
+                </div>
+            </div>
+
+            <!-- VARIABLES -->
+            <input type="text" class="hidden" value="{{request.user.username}}" id="auth_user">
+
+            <div class="friends-add px-10 py-5 w-full">
+                <!-- {{1|profile_username}} -->
+                <div class="text-xl text-gray-200 mb-3 mt-5">Add Friend</div>
+                <form method="GET" action="">
+                    <input type="search" class="w-full h-9 rounded-[8px] px-5 bg-gray-200" name="friend" placeholder="Username">
+                    <button class="bg-indigo-700 text-gray-200 px-5 h-10 rounded-lg mt-3" type="submit">Add</button>
+                </form>
+
+                <div class="results mt-7">
+                    {%if results %}
+                    <div class="heading text-xl font-[700] text-gray-200 mb-5">Results</div>
+                    {% endif %}
+                    {% for friend in results %}
+                        {% if friend.user != request.user %}
+                        <a href="{% url 'friend-add' friend.user.id %}">
+                        <div class="result flex mb-2 rounded-[20px] w-[230px] py-3 px-2 gap-3 shadow">
+                            <img src="{% static 'images/profile.jpg' %}" class="w-10 h-10 rounded-[50%]" alt="">
+                            <div class="text-gray-200 font-[500]">{{friend.user}}</div>
+                        </div> 
+                        </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <script src="{% static 'js/chatsSocket.js' %}"></script>
+    <script>
+        // let friendsDiv = document.querySelector('#friends')
+        // let friends = `{{friends}}`
+        // console.log(friends)
+    </script>
+</body>
+
+</html>

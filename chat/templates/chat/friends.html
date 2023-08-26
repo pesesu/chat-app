@@ -1,0 +1,52 @@
+{% load static %}
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .friend {
+            background: rgba(7, 16, 27, .45);
+        }
+
+         ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #142f52;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #0f2541;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0b203b;
+        }
+    </style>
+</head>
+
+<body class="bg-[#25324b]">
+    <div class="px-10 py-5 flex flex-col h-[100vh]">
+        <div class="bg-[#25324b] pb-4 text-gray-200 text-xl font-[600]">Your Friends:</div>
+        <div class="h-full overflow-auto">
+            {% for friend, room in friends_rooms %}
+            <a href="{% url 'chat' room friend.user.id %}">
+                <div class="friend flex mb-3 rounded-[20px] w-[230px] py-3 px-2 gap-3 shadow">
+                    <img src="{% static 'images/profile.jpg' %}" class="w-10 h-10 rounded-[50%]" alt="">
+                    <div class="text-gray-200 font-[500]">{{friend.user}}</div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>

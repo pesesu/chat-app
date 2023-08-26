@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .card {
+            background: rgba(7, 16, 27, .65);
+        }
+        .color {
+            color: #25324b;
+        }
+    </style>
+</head>
+
+<body class="min-h-[100vh] bg-[#122C4C] flex justify-center items-center text-gray-200 text-sm">
+    <div class="card max-w-[330px] px-10 pt-5 pb-8 rounded-lg flex justify-center w-[100%]">
+        <div class="inline-block">
+            <div class="heading text-xl font-[600] text-indigo-500 mb-7 no-underline">Sign In</div>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <label id="username" for="username">Username:</label>
+                <input type="text" name="username" class="h-9 px-2 bg-[#25324b] text-gray-200 focus:text-gray-800 focus:bg-gray-200 border border-[#2A4D94] rounded-lg mt-1 mb-1 block w-[230px]">
+                <label for="password">Password:</label>
+                <input id="password" type="password" name="password" class="h-9 px-2 bg-[#25324b] text-gray-200 focus:text-gray-800 focus:bg-gray-200 border border-[#2A4D94] mt-1 mb-3 rounded-lg block w-[230px]">
+                <button type="submit" class="px-5 py-2 rounded-lg text-base bg-indigo-800 text-gray-200 shadow-lg mt-1">Login</button>
+            </form> 
+        </div>
+    </div>
+</body>
+
+</html>
